@@ -46,12 +46,12 @@ namespace EmployeeManagement.Controllers
 
                 if (result.Succeeded)
                 {
-                    if (string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
+                    if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
                     {
-                        return RedirectToAction("index", "home");
+                        return Redirect(returnUrl);
                     }
-
-                    return Redirect(returnUrl);
+                    return RedirectToAction("index", "home");
+                    
                 }
 
                 

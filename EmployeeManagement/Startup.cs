@@ -24,11 +24,11 @@ namespace EmployeeManagement
         public void ConfigureServices(IServiceCollection services)
         {
             #region Adding DbContext
-            //var serverVersion = new MySqlServerVersion(new Version(8, 0, 25));
-            //services.AddDbContextPool<AppDbContext>(
-            //    options => options.UseMySql(_config.GetConnectionString("EmployeeDBConnection"), serverVersion));
+            var serverVersion = new MySqlServerVersion(new Version(8, 0, 25));
+            services.AddDbContextPool<AppDbContext>(
+                options => options.UseMySql(_config.GetConnectionString("EmployeeDBConnection"), serverVersion));
 
-            services.AddDbContext<AppDbContext>(); //
+            //services.AddDbContext<AppDbContext>(); //
             #endregion
 
             services.AddIdentity<IdentityUser, IdentityRole>(options => {
@@ -40,8 +40,8 @@ namespace EmployeeManagement
             services.AddMvc(options => options.EnableEndpointRouting = false).AddXmlSerializerFormatters();
 
             #region Adding Repositories
-            //services.AddScoped<IEmployeeRepository, MySqlEmployeeRepository>();
-            services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
+            services.AddScoped<IEmployeeRepository, MySqlEmployeeRepository>();
+            //services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
             #endregion
 
         }

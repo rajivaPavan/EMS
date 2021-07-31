@@ -123,7 +123,7 @@ namespace EmployeeManagement.Controllers
             return View();
         }
 
-        //need to update this action method
+        //need to update the implementation of this action method
         public IActionResult Delete(int id)
         {
             return RedirectToAction("index");
