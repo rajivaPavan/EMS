@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
+
 namespace EmployeeManagement
 {
     public class Startup
@@ -22,10 +23,13 @@ namespace EmployeeManagement
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            var serverVersion = new MySqlServerVersion(new Version(8, 0, 25));
+            #region Adding DbContext
+            //var serverVersion = new MySqlServerVersion(new Version(8, 0, 25));
+            //services.AddDbContextPool<AppDbContext>(
+            //    options => options.UseMySql(_config.GetConnectionString("EmployeeDBConnection"), serverVersion));
 
-            services.AddDbContextPool<AppDbContext>(
-                options => options.UseMySql(_config.GetConnectionString("EmployeeDBConnection"), serverVersion));
+            services.AddDbContext<AppDbContext>(); //
+            #endregion
 
             services.AddIdentity<IdentityUser, IdentityRole>(options => {
                 options.Password.RequiredLength = 8;
@@ -34,8 +38,11 @@ namespace EmployeeManagement
 
             
             services.AddMvc(options => options.EnableEndpointRouting = false).AddXmlSerializerFormatters();
-            services.AddScoped<IEmployeeRepository, MySqlEmployeeRepository>();
-            //services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
+
+            #region Adding Repositories
+            //services.AddScoped<IEmployeeRepository, MySqlEmployeeRepository>();
+            services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
+            #endregion
 
         }
 
@@ -61,10 +68,6 @@ namespace EmployeeManagement
                 routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
             });
 
-            //app.Run(async (context) =>
-            //{
-            //    await context.Response.WriteAsync("Hello World");
-            //});
         }
     }
 }
