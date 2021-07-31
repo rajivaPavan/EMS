@@ -35,6 +35,7 @@ namespace EmployeeManagement
             
             services.AddMvc(options => options.EnableEndpointRouting = false).AddXmlSerializerFormatters();
             services.AddScoped<IEmployeeRepository, MySqlEmployeeRepository>();
+            //services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
 
         }
 

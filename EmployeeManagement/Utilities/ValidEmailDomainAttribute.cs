@@ -19,6 +19,6 @@ namespace EmployeeManagement.Utilities
         {
             string[] strings = value.ToString().Split("@");
             return strings[1].ToUpper() == allowedDomain.ToUpper();
-        }
+        } 
     }
 }
