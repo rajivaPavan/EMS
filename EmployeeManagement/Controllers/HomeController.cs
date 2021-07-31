@@ -126,6 +126,16 @@ namespace EmployeeManagement.Controllers
         //need to update the implementation of this action method
         public IActionResult Delete(int id)
         {
+            Employee employee = _employeeRepository.GetEmployee(id);
+            if(employee != null)
+            {
+                if (employee.PhotoPath != null)
+                {
+                    string filePath = Path.Combine(hostingEnvironment.WebRootPath, "images", employee.PhotoPath);
+                    System.IO.File.Delete(filePath);
+                }
+                _employeeRepository.Delete(id);
+            }
             return RedirectToAction("index");
         }
 
