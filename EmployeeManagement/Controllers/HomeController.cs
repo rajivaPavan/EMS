@@ -4,21 +4,23 @@ using EmployeeManagement.Models;
 using EmployeeManagement.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
-
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Processing;
 
 namespace EmployeeManagement.Controllers
 {
-    [Authorize]
     public class HomeController : Controller
     {
         private readonly IEmployeeRepository _employeeRepository;
-        private readonly IHostingEnvironment hostingEnvironment;
+        private readonly IWebHostEnvironment hostingEnvironment;
         private readonly ILogger logger;
 
         public HomeController(IEmployeeRepository employeeRepository,
-                              IHostingEnvironment hostingEnvironment,
+                              IWebHostEnvironment hostingEnvironment,
                               ILogger<HomeController> logger)
         {
             _employeeRepository = employeeRepository;
@@ -57,6 +59,8 @@ namespace EmployeeManagement.Controllers
         {
             return View();
         }
+
+
 
         [HttpPost]
         public IActionResult Create(EmployeeCreateViewModel model)
@@ -123,7 +127,6 @@ namespace EmployeeManagement.Controllers
             return View();
         }
 
-        //need to update the implementation of this action method
         public IActionResult Delete(int id)
         {
             Employee employee = _employeeRepository.GetEmployee(id);
@@ -141,6 +144,7 @@ namespace EmployeeManagement.Controllers
 
         private string ProcessUploadedFile(EmployeeCreateViewModel model)
         {
+            
             string uniqueFileName = null;
             if (model.Photo != null)
             {
@@ -151,10 +155,13 @@ namespace EmployeeManagement.Controllers
                 {
                     model.Photo.CopyTo(fileStream);
                 }
+
+
             }
 
             return uniqueFileName;
         }
+
     }
 }
 

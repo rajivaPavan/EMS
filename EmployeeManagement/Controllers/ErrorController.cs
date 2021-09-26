@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 
 namespace EmployeeManagement.Controllers
 {
+    [AllowAnonymous]
     public class ErrorController : Controller
     {
         private readonly ILogger<ErrorController> logger;
@@ -36,7 +37,6 @@ namespace EmployeeManagement.Controllers
             return View("NotFound");
         }
 
-        [AllowAnonymous]
         [Route("Error")]
         public IActionResult Error()
         {

@@ -25,5 +25,7 @@ namespace EmployeeManagement.ViewModels
         [Compare("Password",
             ErrorMessage = "Password and confirm password do not match")]
         public string ConfirmPassword { get; set; }
+
+        public string City { get; set; }
     }
 }

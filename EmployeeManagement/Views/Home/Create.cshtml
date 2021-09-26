@@ -32,10 +32,10 @@
     </div>
 
     <div class="form-group row">
-        <label asp-for="Photo" class="col-sm-2 col-form-label"></label>
+        <label for="PhotoSelect" class="col-sm-2 col-form-label"></label>
         <div class="col-sm-10">
             <div class="custom-file">
-                <input asp-for="Photo" class="form-control custom-file-input">
+                <input type="file" asp-for="Photo" class="form-control custom-file-input">
                 <label class="custom-file-label">Choose File...</label>
             </div>
         </div>
@@ -45,10 +45,13 @@
 
     <div class="form-group row">
         <div class="col-sm-10">
-            <button type="submit" class="btn btn-primary">Create</button>
+            <button type="submit" class="btn btn-primary" id="create-btn">Create</button>
+            <button id="btnupload"  hidden></button>
         </div>
     </div>
-    @section Scripts{ 
+
+    @section Scripts{
+
         <script>
             $(document).ready(function () {
                 $('.custom-file-input').on("change", function () {
@@ -56,6 +59,8 @@
                     $(this).next('.custom-file-label').html(fileName);
                 });
             });
+
         </script>
+
     }
 </form> 
