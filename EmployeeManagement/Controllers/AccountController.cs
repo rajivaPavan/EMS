@@ -71,6 +71,7 @@ namespace EmployeeManagement.Controllers
             return View();
         }
 
+        [AllowAnonymous]
         [HttpPost][HttpGet]
         public async Task<IActionResult> IsEmailInUse(string email)
         {

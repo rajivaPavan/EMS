@@ -1138,23 +1138,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Sujeewa\\.nuget\\packages\\": {},
+    "C:\\Users\\pavan\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\DevExpress 20.2\\Components\\Offline Packages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DotNetCore\\EmployeeManagement\\EmployeeManagement\\EmployeeManagement.csproj",
+      "projectUniqueName": "C:\\Users\\pavan\\Documents\\After Alevel\\Projects\\EMS\\EmployeeManagement\\EmployeeManagement.csproj",
       "projectName": "EmployeeManagement",
-      "projectPath": "D:\\DotNetCore\\EmployeeManagement\\EmployeeManagement\\EmployeeManagement.csproj",
-      "packagesPath": "C:\\Users\\Sujeewa\\.nuget\\packages\\",
-      "outputPath": "D:\\DotNetCore\\EmployeeManagement\\EmployeeManagement\\obj\\",
+      "projectPath": "C:\\Users\\pavan\\Documents\\After Alevel\\Projects\\EMS\\EmployeeManagement\\EmployeeManagement.csproj",
+      "packagesPath": "C:\\Users\\pavan\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\pavan\\Documents\\After Alevel\\Projects\\EMS\\EmployeeManagement\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\DevExpress 20.2\\Components\\Offline Packages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Sujeewa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\pavan\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.2.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1223,7 +1223,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
